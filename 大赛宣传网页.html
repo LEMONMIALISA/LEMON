@@ -1,0 +1,1095 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大理市第十八届职工技术技能大赛 - 酒店服务管理客房服务专业竞赛</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;family=ZCOOL+XiaoWei&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A5E38',      // 大理青绿色，代表自然与专业
+                        secondary: '#D9A566',    // 暖金色，代表服务与品质
+                        accent: '#E8F1EE',       // 淡绿色，作为背景色
+                        dark: '#2C3E50',         // 深色文字
+                        light: '#F8FAFC'         // 浅色背景
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        serif: ['ZCOOL XiaoWei', 'serif']
+                    },
+                    backgroundImage: {
+                        'dali-pattern': "url('https://picsum.photos/id/1036/1920/1080')",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-custom bg-transparent">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fa fa-trophy text-secondary text-3xl mr-3"></i>
+                <span class="text-white font-serif text-xl md:text-2xl font-bold text-shadow-lg">大理市职工技能大赛</span>
+            </div>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="text-white hover:text-secondary transition-custom font-medium">竞赛简介</a>
+                <a href="#schedule" class="text-white hover:text-secondary transition-custom font-medium">日程安排</a>
+                <a href="#events" class="text-white hover:text-secondary transition-custom font-medium">竞赛项目</a>
+                <a href="#awards" class="text-white hover:text-secondary transition-custom font-medium">奖项设置</a>
+                <a href="#registration" class="text-white hover:text-secondary transition-custom font-medium">报名方式</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#intro" class="text-dark hover:text-primary py-2 transition-custom">竞赛简介</a>
+                <a href="#schedule" class="text-dark hover:text-primary py-2 transition-custom">日程安排</a>
+                <a href="#events" class="text-dark hover:text-primary py-2 transition-custom">竞赛项目</a>
+                <a href="#awards" class="text-dark hover:text-primary py-2 transition-custom">奖项设置</a>
+                <a href="#registration" class="text-dark hover:text-primary py-2 transition-custom">报名方式</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen bg-cover bg-center flex items-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1031/1920/1080');">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/70 to-dark/50"></div>
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-serif font-bold text-white leading-tight text-shadow-lg mb-6">
+                    大理市第十八届职工技术技能大赛
+                </h1>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] font-medium text-white text-shadow mb-8">
+                    酒店服务管理客房服务专业竞赛
+                </p>
+                <div class="text-2xl font-serif text-white italic mb-10">
+                    匠心筑梦·技能兴市
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#registration" class="bg-secondary hover:bg-secondary/90 text-white font-medium px-8 py-3 rounded-lg transition-custom shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        立即报名 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#schedule" class="bg-transparent border-2 border-white hover:border-secondary text-white hover:text-secondary font-medium px-8 py-3 rounded-lg transition-custom">
+                        查看日程 <i class="fa fa-calendar ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 向下滚动指示 -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#intro" class="flex flex-col items-center">
+                <span class="mb-2 font-medium">了解更多</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 竞赛简介 -->
+    <section id="intro" class="py-20 bg-accent">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold text-primary mb-4">竞赛简介</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <p class="text-lg mb-6 leading-relaxed">
+                        为深化产业工人队伍建设改革，培养知识型、技能型、创新型职工队伍，大理市特举办本次客房服务专业竞赛。通过"以赛促学、以赛促训、以赛促评、以赛促建"模式，搭建行业交流平台，提升全市酒店服务水平，推动旅游产业高质量发展。
+                    </p>
+                    <p class="text-lg mb-8 leading-relaxed">
+                        本次竞赛以专业赛事为桥梁，打造酒店客房服务行业标杆，助力"有一种生活叫大理"品牌升级，共建优质服务型旅游城市。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom">
+                            <div class="text-primary text-3xl mb-3">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">以赛促学</h3>
+                            <p class="text-gray-600">提升专业技能与理论知识</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom">
+                            <div class="text-primary text-3xl mb-3">
+                                <i class="fa fa-handshake-o"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">行业交流</h3>
+                            <p class="text-gray-600">搭建同行学习交流平台</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom">
+                            <div class="text-primary text-3xl mb-3">
+                                <i class="fa fa-trophy"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">树立标杆</h3>
+                            <p class="text-gray-600">打造行业服务质量典范</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-custom">
+                            <div class="text-primary text-3xl mb-3">
+                                <i class="fa fa-building"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">助力发展</h3>
+                            <p class="text-gray-600">推动旅游产业高质量发展</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 relative">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/df9a6390cb48403486f9254a6e5d9a18~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755225258&amp;x-signature=JWgVjr8Wjc55d%2BA5K0EzukhbtWk%3D" alt="酒店客房服务展示" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    <div class="absolute -bottom-6 -left-6 bg-secondary text-white p-4 rounded-lg shadow-lg hidden md:block">
+                        <p class="font-serif text-xl font-bold">2025年9月</p>
+                        <p class="text-sm">决赛时间</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 日程安排 -->
+    <section id="schedule" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold text-primary mb-4">核心日程</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    本次竞赛分为多个阶段，从报名到决赛及颁奖典礼，全程公开透明，确保公平公正
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- 时间线 -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
+                
+                <!-- 日程项目 -->
+                <div class="space-y-16">
+                    <!-- 报名阶段 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary mb-2">报名阶段</h3>
+                            <p class="text-gray-500 mb-3">2025年8月1日-8月21日</p>
+                            <p class="text-gray-600">线上报名及资料提交，通过大理州人力资源服务行业协会公众号进行</p>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="fa fa-pencil text-white"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left">
+                            <div class="bg-accent p-6 rounded-lg shadow-sm">
+                                <h4 class="font-bold mb-2">温馨提示</h4>
+                                <p class="text-gray-600 text-sm">请在截止日期前完成报名，逾期将无法参加本次竞赛</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 初赛阶段 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 md:order-1 order-2">
+                            <div class="bg-accent p-6 rounded-lg shadow-sm">
+                                <h4 class="font-bold mb-2">考核内容</h4>
+                                <p class="text-gray-600 text-sm">客房服务礼仪、规章制度、清洁标准、应急处理、行业法规等</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="fa fa-file-text-o text-white"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left md:order-2 order-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">初赛（笔试）</h3>
+                            <p class="text-gray-500 mb-3">2025年9月9日9:00-11:00</p>
+                            <p class="text-gray-600">理论知识考核，地点：大理经开区党群活动服务中心4楼会议室</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 网络投票 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary mb-2">网络投票</h3>
+                            <p class="text-gray-500 mb-3">2025年8月25日-9月16日</p>
+                            <p class="text-gray-600">"最美服务形象""最暖服务故事"评选，通过微信平台进行</p>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="fa fa-thumbs-up text-white"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left">
+                            <div class="bg-accent p-6 rounded-lg shadow-sm">
+                                <h4 class="font-bold mb-2">参与方式</h4>
+                                <p class="text-gray-600 text-sm">上传3-5张含选手工作场景的客房实景图+200字服务理念，可选提交服务故事</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 决赛阶段 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 md:order-1 order-2">
+                            <div class="bg-accent p-6 rounded-lg shadow-sm">
+                                <h4 class="font-bold mb-2">考核内容</h4>
+                                <p class="text-gray-600 text-sm">标准中式铺床、客房清洁整理、客用品摆放、应急场景处理</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="fa fa-bed text-white"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left md:order-2 order-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">决赛（实操）</h3>
+                            <p class="text-gray-500 mb-3">2025年9月16日</p>
+                            <p class="text-gray-600">铺床、客房清洁、应急处理等实操比拼，地点：大理金沙半岛海景养生酒店</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 颁奖典礼 -->
+                    <div class="md:flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary mb-2">颁奖典礼</h3>
+                            <p class="text-gray-500 mb-3">2025年9月16日</p>
+                            <p class="text-gray-600">表彰获奖个人及团体，地点：大理金沙半岛海景养生酒店</p>
+                        </div>
+                        
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10">
+                            <i class="fa fa-trophy text-white"></i>
+                        </div>
+                        
+                        <div class="md:w-1/2 md:pl-12 md:text-left">
+                            <div class="bg-accent p-6 rounded-lg shadow-sm">
+                                <h4 class="font-bold mb-2">活动亮点</h4>
+                                <p class="text-gray-600 text-sm">邀请行业专家、政府领导出席，颁发荣誉证书及奖金</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 竞赛项目 -->
+    <section id="events" class="py-20 bg-gradient-to-b from-accent to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold text-primary mb-4">竞赛项目</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    竞赛分为个人赛和团体赛，全面考核选手的专业技能、理论知识和团队协作能力
+                </p>
+            </div>
+            
+            <!-- 项目选项卡 -->
+            <div class="mb-10">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="event-tab active px-6 py-3 rounded-full bg-primary text-white font-medium transition-custom" data-tab="individual">
+                        个人赛
+                    </button>
+                    <button class="event-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium transition-custom" data-tab="team">团体赛</button>
+                </div>
+            </div>
+            
+            <!-- 个人赛内容 -->
+            <div id="individual" class="event-content block">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- 初赛 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-custom transform hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ec88dd10ac6448e19b6129258a614f7d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754534147&amp;x-signature=v0Cpff89ebFvvc99ImBAmc%2Fl9qo%3D" alt="理论考试" class="w-full h-full object-cover transition-custom hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                                    <i class="fa fa-file-text-o"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">初赛（理论考试）</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                考核客房服务礼仪、规章制度、清洁标准、应急处理、行业法规等，题型包括单选、多选、简答及案例分析。
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fa fa-clock-o mr-2 text-primary"></i> 2025年9月9日 9:00-11:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 网络投票 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-custom transform hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/caf913ba378541c7a0f1a0a01728a8c2~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754534104&amp;x-signature=EDbSevBqJNOGwZNdN2EePt%2BvIjs%3D" alt="网络投票" class="w-full h-full object-cover transition-custom hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                                    <i class="fa fa-thumbs-up"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">网络投票</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                上传3-5张含选手工作场景的客房实景图+200字服务理念，可选提交"最暖服务故事"（客户好评案例）加分。
+                            </p>
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fa fa-clock-o mr-2 text-primary"></i> 2025年8月25日-9月16日</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 决赛 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-custom transform hover:-translate-y-1">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5f0cf910fdf0464baf0d2d20dd12e0e4~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754534130&amp;x-signature=mQoNk%2BcVLltyAbnlJLDprVyKf9E%3D" alt="实操比赛" class="w-full h-full object-cover transition-custom hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                                    <i class="fa fa-tasks"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">决赛（实操）</h3>
+                            </div>
+                            <ul class="text-gray-600 mb-4 space-y-2">
+                                <li><i class="fa fa-check-circle text-primary mr-2"></i>标准中式铺床（30%）</li>
+                                <li><i class="fa fa-check-circle text-primary mr-2"></i>客房清洁整理（35%）</li>
+                                <li><i class="fa fa-check-circle text-primary mr-2"></i>客用品摆放（15%）</li>
+                                <li><i class="fa fa-check-circle text-primary mr-2"></i>应急场景处理（20%）</li>
+                            </ul>
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fa fa-clock-o mr-2 text-primary"></i> 2025年9月16日</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 决赛评分比例图表 -->
+                <div class="mt-16 bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-bold text-center mb-8">决赛评分比例</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <canvas id="scoringChart" width="400" height="300"></canvas>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-6">
+                                决赛实操环节采用百分制评分，重点考察选手的专业技能、操作规范和服务意识。其中客房清洁整理和标准中式铺床占比最高，体现了客房服务的核心技能要求。
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">标准中式铺床</span>
+                                        <span class="text-sm font-medium">30%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">客房清洁整理</span>
+                                        <span class="text-sm font-medium">35%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">客用品摆放</span>
+                                        <span class="text-sm font-medium">15%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium">应急场景处理</span>
+                                        <span class="text-sm font-medium">20%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 团体赛内容 -->
+            <div id="team" class="event-content hidden">
+                <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-6 text-primary">团体赛规则</h3>
+                    <p class="text-gray-600 mb-6">
+                        团体赛以3人为小组，成绩由"3人个人赛总成绩平均分（70%）+社会问卷评价（30%）"构成，聚焦团队协作与整体服务品质。
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-accent p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-4 flex items-center">
+                                <i class="fa fa-users text-primary mr-3"></i> 团队组成
+                            </h4>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>每队由3名选手组成，来自同一单位</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>需指定1名队长，负责团队协调</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>所有成员必须参加个人赛环节</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-accent p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-4 flex items-center">
+                                <i class="fa fa-calculator text-primary mr-3"></i> 评分标准
+                            </h4>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>团队成员个人赛总成绩平均分（70%）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>社会问卷评价（30%）</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>团队协作表现与整体服务质量</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-custom hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                            <i class="fa fa-sitemap"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">团队协作</h4>
+                        <p class="text-gray-600">
+                            考察团队成员间的配合与沟通能力，以及在压力下的协作效率
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-custom hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">服务品质</h4>
+                        <p class="text-gray-600">
+                            评估团队整体服务水平与质量标准执行情况
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center transform transition-custom hover:-translate-y-2 hover:shadow-xl">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mx-auto mb-4">
+                            <i class="fa fa-lightbulb-o"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">创新能力</h4>
+                        <p class="text-gray-600">
+                            鼓励团队在服务流程和方法上的创新与改进
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 奖项设置 -->
+    <section id="awards" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold text-primary mb-4">奖项设置</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    本次竞赛设置了丰富的奖项，不仅有丰厚奖金，更有职业技能晋升机会
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 团体奖 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                        <i class="fa fa-users text-secondary mr-3"></i> 团体奖
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-accent rounded-lg p-6 shadow-md hover:shadow-lg transition-custom border-l-4 border-primary">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">"大理市客房服务铂钻服务标杆团队"</h4>
+                                    <p class="text-gray-600 text-sm">第1名</p>
+                                </div>
+                                <div class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                                    1
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent rounded-lg p-6 shadow-md hover:shadow-lg transition-custom border-l-4 border-primary/80">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">"大理市客房服务臻品体验典范团队"</h4>
+                                    <p class="text-gray-600 text-sm">第2名</p>
+                                </div>
+                                <div class="bg-primary/80 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                                    2
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent rounded-lg p-6 shadow-md hover:shadow-lg transition-custom border-l-4 border-primary/60">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">"大理市客房服务细致入微匠心团队"</h4>
+                                    <p class="text-gray-600 text-sm">第3名</p>
+                                </div>
+                                <div class="bg-primary/60 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                                    3
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent rounded-lg p-6 shadow-md hover:shadow-lg transition-custom border-l-4 border-primary/40">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">"大理市客房服务新锐潜力之星团队"</h4>
+                                    <p class="text-gray-600 text-sm">第4-5名</p>
+                                </div>
+                                <div class="bg-primary/40 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                                    4-5
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent rounded-lg p-6 shadow-md hover:shadow-lg transition-custom border-l-4 border-secondary">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">"大理市人气旅游美宿"</h4>
+                                    <p class="text-gray-600 text-sm">社会评价第1名</p>
+                                </div>
+                                <div class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 个人奖 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-8 flex items-center">
+                        <i class="fa fa-user text-secondary mr-3"></i> 个人奖
+                    </h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th class="py-3 px-4 text-left">名次</th>
+                                    <th class="py-3 px-4 text-left">称号</th>
+                                    <th class="py-3 px-4 text-left">奖励</th>
+                                    <th class="py-3 px-4 text-left">职业技能晋升</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-accent/50 transition-custom">
+                                    <td class="py-3 px-4 font-medium">第1名</td>
+                                    <td class="py-3 px-4">技能状元</td>
+                                    <td class="py-3 px-4">奖金3000元+奖杯+证书</td>
+                                    <td class="py-3 px-4">晋升技师/高级技师</td>
+                                </tr>
+                                <tr class="hover:bg-accent/50 transition-custom">
+                                    <td class="py-3 px-4 font-medium">第2名</td>
+                                    <td class="py-3 px-4">技术能手</td>
+                                    <td class="py-3 px-4">奖金2000元+奖杯+证书</td>
+                                    <td class="py-3 px-4">晋升高级工/技师</td>
+                                </tr>
+                                <tr class="hover:bg-accent/50 transition-custom">
+                                    <td class="py-3 px-4 font-medium">第3名</td>
+                                    <td class="py-3 px-4">优胜技术能手</td>
+                                    <td class="py-3 px-4">奖金1000元+奖杯+证书</td>
+                                    <td class="py-3 px-4">晋升高级工/技师</td>
+                                </tr>
+                                <tr class="hover:bg-accent/50 transition-custom">
+                                    <td class="py-3 px-4 font-medium">第4-10名</td>
+                                    <td class="py-3 px-4">优秀奖</td>
+                                    <td class="py-3 px-4">荣誉证书</td>
+                                    <td class="py-3 px-4">晋升高级工/中级工</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-8 bg-accent p-6 rounded-lg">
+                        <h4 class="font-bold text-lg mb-3">职业发展优势</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>获奖选手纳入全市旅游人才库</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>优先获得职业技能培训机会</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>在职称评审中享受加分政策</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                                <span>有机会参与大理市旅游服务标准制定</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 报名方式 -->
+    <section id="registration" class="py-20 bg-primary/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold text-primary mb-4">报名须知</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    了解参赛条件和报名方式，准备好相关材料，及时提交报名信息
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 参赛对象 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-custom">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fa fa-user-circle-o"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">参赛对象</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                            <span>大理市范围内酒店、民宿、客栈的在职客房服务员（年满18周岁）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                            <span>需从事客房清扫、客用物品整理等相关工作</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                            <span>能代表单位服务水平，经单位推荐</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <h4 class="font-bold mb-3">限制条件</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i class="fa fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                <span>已获国家级、省部级"技术状元""技术能手"（客房服务或相近工种）者不可参赛</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-exclamation-circle text-red-500 mt-1 mr-2"></i>
+                                <span>已获州级、市级"技术状元"（同上）者不可参赛</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 报名材料 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-custom">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fa fa-file-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">报名材料</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0 mt-0.5">
+                                1
+                            </div>
+                            <span>营业执照副本扫描件</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0 mt-0.5">
+                                2
+                            </div>
+                            <span>选手身份证扫描件（正反面）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0 mt-0.5">
+                                3
+                            </div>
+                            <span>职业资格/技能等级证书扫描件</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0 mt-0.5">
+                                4
+                            </div>
+                            <span>近期免冠一寸蓝底证件照（电子版）</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3 flex-shrink-0 mt-0.5">
+                                5
+                            </div>
+                            <span>报名表及安全健康承诺书（见附件）</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 报名方式 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-custom">
+                    <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl mb-6">
+                        <i class="fa fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">报名方式</h3>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-600 mb-3">
+                            <i class="fa fa-qrcode text-primary mr-2"></i> 扫码在线报名
+                        </p>
+                        <div class="bg-gray-100 w-48 h-48 mx-auto rounded-lg flex items-center justify-center mb-2">
+                            <span class="text-gray-400 text-sm">扫码报名二维码</span>
+                        </div>
+                        <p class="text-center text-xs text-gray-500">截止2025年8月21日18:00</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold mb-1">邮箱提交</h4>
+                            <p class="text-gray-600 flex items-center">
+                                <i class="fa fa-envelope text-primary mr-2"></i>
+                                1350319916@qq.com
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold mb-1">联系方式</h4>
+                            <p class="text-gray-600 flex items-center mb-2">
+                                <i class="fa fa-phone text-primary mr-2"></i>
+                                王老师 19989926969
+                            </p>
+                            <p class="text-gray-600 flex items-center">
+                                <i class="fa fa-phone text-primary mr-2"></i>
+                                赵老师 19869051752
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 组织机构 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-serif font-bold text-primary mb-4">组织机构</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-accent rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mx-auto mb-4">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <h3 class="font-bold mb-3">主办单位</h3>
+                    <p class="text-gray-600 text-sm">中共大理市委、大理市人民政府等</p>
+                </div>
+                
+                <div class="bg-accent rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mx-auto mb-4">
+                        <i class="fa fa-compass"></i>
+                    </div>
+                    <h3 class="font-bold mb-3">指导单位</h3>
+                    <p class="text-gray-600 text-sm">大理州总工会、大理州人力资源和社会保障局</p>
+                </div>
+                
+                <div class="bg-accent rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mx-auto mb-4">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3 class="font-bold mb-3">承办单位</h3>
+                    <p class="text-gray-600 text-sm">大理市总工会、大理市人力资源和社会保障局等</p>
+                </div>
+                
+                <div class="bg-accent rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl mx-auto mb-4">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </div>
+                    <h3 class="font-bold mb-3">技术支持</h3>
+                    <p class="text-gray-600 text-sm">大理州客栈民宿行业协会</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 竞赛亮点 -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif font-bold mb-4">竞赛亮点</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-custom transform hover:-translate-y-2">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">权威认证</h3>
+                    <p class="text-white/80">
+                        获奖选手可晋升职业技能等级，纳入全市旅游人才库，为职业发展打下坚实基础。
+                    </p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-custom transform hover:-translate-y-2">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">成果转化</h3>
+                    <p class="text-white/80">
+                        赛后发布《大理市酒店客房服务标准化操作指南》，纳入从业人员培训体系，推动行业标准化发展。
+                    </p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-custom transform hover:-translate-y-2">
+                    <div class="text-secondary text-4xl mb-6">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">全程公益</h3>
+                    <p class="text-white/80">
+                        不收取任何参赛费用，场地、设备等由主办单位统筹解决，确保公平参与机会。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-2xl font-serif italic mb-8">让技能成就梦想，让服务点亮大理！</p>
+                <p class="text-white/70">本竞赛最终解释权归组委会所有</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fa fa-trophy text-secondary mr-2"></i>
+                        大理市职工技能大赛
+                    </h4>
+                    <p class="text-gray-400 text-sm">
+                        以专业赛事为桥梁，打造酒店客房服务行业标杆，助力"有一种生活叫大理"品牌升级。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#intro" class="hover:text-secondary transition-custom">竞赛简介</a></li>
+                        <li><a href="#schedule" class="hover:text-secondary transition-custom">日程安排</a></li>
+                        <li><a href="#events" class="hover:text-secondary transition-custom">竞赛项目</a></li>
+                        <li><a href="#awards" class="hover:text-secondary transition-custom">奖项设置</a></li>
+                        <li><a href="#registration" class="hover:text-secondary transition-custom">报名方式</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">联系方式</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-secondary mt-1 mr-3"></i>
+                            <span>1350319916@qq.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                            <span>王老师 19989926969</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                            <span>赵老师 19869051752</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">关注我们</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-custom">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-custom">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-custom">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        扫描二维码关注公众号，获取最新赛事资讯
+                    </p>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
+                <p>© 2025 大理市职工技术技能大赛组委会 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-custom opacity-0 invisible">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('bg-primary', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-primary', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单（如果打开）
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部按钮
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 竞赛项目选项卡切换
+        const eventTabs = document.querySelectorAll('.event-tab');
+        const eventContents = document.querySelectorAll('.event-content');
+        
+        eventTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有选项卡的活动状态
+                eventTabs.forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                
+                // 添加当前选项卡的活动状态
+                tab.classList.add('active', 'bg-primary', 'text-white');
+                tab.classList.remove('bg-gray-200', 'text-gray-700');
+                
+                // 隐藏所有内容
+                eventContents.forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('block');
+                });
+                
+                // 显示当前内容
+                const target = tab.getAttribute('data-tab');
+                document.getElementById(target).classList.add('block');
+                document.getElementById(target).classList.remove('hidden');
+            });
+        });
+        
+        // 评分比例图表
+        const ctx = document.getElementById('scoringChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['标准中式铺床', '客房清洁整理', '客用品摆放', '应急场景处理'],
+                datasets: [{
+                    data: [30, 35, 15, 20],
+                    backgroundColor: [
+                        '#1A5E38',
+                        '#2A7E48',
+                        '#3A9E58',
+                        '#4ABF68'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                cutout: '65%'
+            }
+        });
+    </script>
+
+
+</body></html>
